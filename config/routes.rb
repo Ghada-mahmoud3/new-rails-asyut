@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
 
-     get 'articles', to: 'articles#index'
+     get '/articles', to: 'articles#index'
 
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
