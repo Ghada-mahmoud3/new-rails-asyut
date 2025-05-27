@@ -1,0 +1,36 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div>
+      <h2><%= pluralize(post.errors.count, "error") %></h2>
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, "User", style: "display: block" %>
+    <%= form.collection_select :user_id, User.all, :id, :name, prompt: "Select a User" %>
+  </div>
+
+  <div>
+    <%= form.label :creator_id, "Creator", style: "display: block" %>
+    <%= form.collection_select :creator_id, User.all, :id, :name, prompt: "Select a User" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
